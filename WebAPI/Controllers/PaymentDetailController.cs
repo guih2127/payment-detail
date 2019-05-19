@@ -21,7 +21,6 @@ namespace WebAPI.Controllers
         }
 
         // GET: api/PaymentDetail
-        [HttpGet]
         public async Task<ActionResult<IEnumerable<PaymentDetail>>> GetPaymentDetails()
         {
             return await _context.PaymentDetails.ToListAsync();
@@ -55,6 +54,20 @@ namespace WebAPI.Controllers
             }
 
             return NoContent();
+        }
+
+        //GET: api/PaymentDetail/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<PaymentDetail>> GetPaymentDetail(int id)
+        {
+            var paymentDetail = await _context.PaymentDetails.FindAsync(id);
+
+            if (paymentDetail == null)
+            {
+                return NotFound();
+            }
+
+            return paymentDetail;
         }
 
         // POST: api/PaymentDetail

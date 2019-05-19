@@ -37,6 +37,7 @@ namespace WebAPI
                 });
             // com essa configuração fazemos com que o serializer não mude o nome para um formato camel case, na hora de gerar o json.
             services.AddDbContext<PaymentDetailContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DevConnection")));
+            services.AddCors();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +53,9 @@ namespace WebAPI
                 app.UseHsts();
             }
 
+            app.UseCors(options => options.WithOrigins("http://localhost:4200")
+            .AllowAnyMethod()
+            .AllowAnyHeader());
             app.UseHttpsRedirection();
             app.UseMvc();
         }
