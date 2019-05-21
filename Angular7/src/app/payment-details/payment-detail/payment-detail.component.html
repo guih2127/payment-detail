@@ -4,10 +4,10 @@
     <div class="input-group">
       <div class="input-group-prepend">
         <div class="input-group-text bg-white">
-            <i class="fas fa-user-circle" [class.green-icon]="CardOwnerName.valid" [class.red-icon]="CardOwnerName.invalid && CardOwnerName.touched"></i>
+            <i class="fas fa-user-circle" [class.green-icon]="CardOwnername.valid" [class.red-icon]="CardOwnername.invalid && CardOwnername.touched"></i>
         </div>
       </div>
-      <input name="CardOwnerName" #CardOwnerName="ngModel" [(ngModel)]="service.formData.CardOwnerName" class="form-control" placeholder="Card Owner Name" required>
+      <input name="CardOwnername" #CardOwnername="ngModel" [(ngModel)]="service.formData.CardOwnername" class="form-control" placeholder="Card Owner Name" required>
     </div>
   </div>
   <div class="form-group">
@@ -28,7 +28,7 @@
                   <i class="fas fa-calendar-week" [class.green-icon]="ExpirationDate.valid" [class.red-icon]="ExpirationDate.invalid && ExpirationDate.touched"></i>
               </div>
             </div>
-            <input placeholder="MM/YY" name="ExpirationDate" #ExpirationDate="ngModel" [(ngModel)]="service.ExpirationDate" class="form-control" maxlength="5" minlength="5" required>
+            <input placeholder="MM/YY" name="ExpirationDate" #ExpirationDate="ngModel" [(ngModel)]="service.formData.ExpirationDate" class="form-control" maxlength="5" minlength="5" required>
           </div>
       </div>
       <div class="form-group col-md-5">

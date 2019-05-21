@@ -211,3 +211,7 @@ div.input-group-text.bg-white {
       width: 25em;
     }
   }
+
+table tr:hover {
+  cursor: pointer;
+}
